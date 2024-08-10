@@ -1,7 +1,7 @@
-const { Page } = require("@playwright/test");
+import { Page } from "@playwright/test";
 
 export class LoginPage {
-  page: typeof Page;
+  page: Page;
   usernameTextbox: any;
   passwordTextbox: any;
   loginButton: any;
@@ -10,7 +10,7 @@ export class LoginPage {
   /**
    * @param {import("@playwright/test").Page} page
    */
-  constructor(page: typeof Page) {
+  constructor(page: Page) {
     this.page = page;
     this.usernameTextbox = page.locator("#user-name");
     this.passwordTextbox = page.locator("#password");

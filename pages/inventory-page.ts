@@ -1,13 +1,13 @@
-const { Page } = require("@playwright/test");
+import { Page } from "@playwright/test";
 
 export class InventoryPage {
-  page: typeof Page;
+  page: Page;
   productsContainer: any;
 
   /**
    * @param {import("@playwright/test").Page} page
    */
-  constructor(page: typeof Page) {
+  constructor(page: Page) {
     this.page = page;
     this.productsContainer = page.getByTestId("inventory-container");
   }

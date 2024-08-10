@@ -1,12 +1,12 @@
-const { Page } = require("@playwright/test");
+import { Page } from "@playwright/test";
 
 export class OrderSummaryPage {
-  page: typeof Page;
+  page: Page;
 
   /**
    * @param {import("@playwright/test").Page} page
    */
-  constructor(page: typeof Page) {
+  constructor(page: Page) {
     this.page = page;
   }
 

@@ -1,7 +1,7 @@
-const { Page } = require("@playwright/test");
+import { Page } from "@playwright/test";
 
 export class CheckoutPage {
-  page: typeof Page;
+  page: Page;
   firstNameTextbox: any;
   lastNameTextbox: any;
   postalCodeTextbox: any;
@@ -10,7 +10,7 @@ export class CheckoutPage {
   /**
    * @param {import("@playwright/test").Page} page
    */
-  constructor(page: typeof Page) {
+  constructor(page: Page) {
     this.page = page;
     this.firstNameTextbox = page.getByTestId("firstName");
     this.lastNameTextbox = page.getByTestId("lastName");
