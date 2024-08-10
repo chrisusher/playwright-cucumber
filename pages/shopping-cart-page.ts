@@ -1,9 +1,12 @@
-// @ts-check
+const { Page } = require("@playwright/test");
+
 export class ShoppingCartPage {
+  page: typeof Page;
+
   /**
    * @param {import("@playwright/test").Page} page
    */
-  constructor(page) {
+  constructor(page: typeof Page) {
     this.page = page;
   }
 
@@ -11,7 +14,7 @@ export class ShoppingCartPage {
    * Returns true if the Browser is on the shopping cart page.
    * @returns {boolean}
    */
-  onPage() {
+  onPage(): boolean {
     return this.page.url().toLowerCase().includes("/cart.html");
   }
 
@@ -20,7 +23,7 @@ export class ShoppingCartPage {
    *
    * @return {Promise<void>} A promise that waits until checkout navigation is complete.
    */
-  async checkoutAsync() {
+  async checkoutAsync(): Promise<void> {
     await this.page.getByTestId("checkout").click();
   }
 }

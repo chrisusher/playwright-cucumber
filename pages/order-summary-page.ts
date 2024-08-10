@@ -1,9 +1,12 @@
-// @ts-check
+const { Page } = require("@playwright/test");
+
 export class OrderSummaryPage {
+  page: typeof Page;
+
   /**
    * @param {import("@playwright/test").Page} page
    */
-  constructor(page) {
+  constructor(page: typeof Page) {
     this.page = page;
   }
 
@@ -11,7 +14,7 @@ export class OrderSummaryPage {
    * Returns true if the Browser is on the order summary page.
    * @returns {boolean}
    */
-  onPage() {
+  onPage(): boolean {
     return this.page.url().toLowerCase().includes("/checkout-step-two.html");
   }
 
@@ -20,7 +23,7 @@ export class OrderSummaryPage {
    *
    * @returns {Promise<void>} A promise that waits until the finish navigation is complete.
    */
-  async completeOrderAsync() {
+  async completeOrderAsync(): Promise<void> {
     await this.page.getByTestId("finish").click();
   }
 }

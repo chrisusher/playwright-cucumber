@@ -1,5 +1,5 @@
-const { test, chromium, expect } = require("@playwright/test");
-const { LoginPage } = require("../../pages/security/login-page");
+import { test, chromium, expect, Page } from "@playwright/test";
+import { LoginPage } from "../../pages/security/login-page";
 
 require("dotenv").config();
 
@@ -14,6 +14,7 @@ test.describe("Product Page Concurrency Test", () => {
     test.info().annotations.push({
       description:
         "If we have 5 concurrent sessions, then all attempts to load the inventory page should load in less than 2 seconds.",
+      type: "",
     });
 
     let numberOfSessions = 5;
@@ -43,7 +44,7 @@ test.describe("Product Page Concurrency Test", () => {
     await browser.close();
   });
 
-  async function loginAsync(page) {
+  async function loginAsync(page: Page) {
     await page.goto(
       process.env.BASE_URL ? process.env.BASE_URL : "https://www.saucedemo.com"
     );

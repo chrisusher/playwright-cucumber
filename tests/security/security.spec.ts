@@ -1,5 +1,5 @@
-const { test, expect } = require("@playwright/test");
-const { LoginPage } = require("../../pages/security/login-page");
+import { test, expect } from "@playwright/test";
+import { LoginPage } from "../../pages/security/login-page";
 
 require("dotenv").config();
 
@@ -15,6 +15,7 @@ test.describe("Login", () => {
     test.info().annotations.push({
       description:
         "Given I have incorrect username and password, when I log in, then I should see an error message indicating that Login is not valid.",
+      type: "",
     });
 
     // Create a Login Page.

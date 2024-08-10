@@ -1,10 +1,10 @@
-const { test, expect } = require("@playwright/test");
-const { faker } = require("@faker-js/faker");
-const { LoginPage } = require("../../pages/security/login-page");
-const { InventoryPage } = require("../../pages/inventory-page");
-const { ShoppingCartPage } = require("../../pages/shopping-cart-page");
-const { CheckoutPage } = require("../../pages/checkout-page");
-const { OrderSummaryPage } = require("../../pages/order-summary-page");
+import { test, expect } from "@playwright/test";
+import { faker } from "@faker-js/faker";
+import { LoginPage } from "../../pages/security/login-page";
+import { InventoryPage } from "../../pages/inventory-page";
+import { ShoppingCartPage } from "../../pages/shopping-cart-page";
+import { CheckoutPage } from "../../pages/checkout-page";
+import { OrderSummaryPage } from "../../pages/order-summary-page";
 
 require("dotenv").config();
 
@@ -27,8 +27,8 @@ test.describe("Purchase Flow", () => {
 
   test("Purchase Items", async ({ page }) => {
     test.info().annotations.push({
-      description:
-        "Given I have logged in, when I purchase items and complete the purchase, then I should see an order confirmation.",
+      description: "Given I have logged in, when I purchase items and complete the purchase, then I should see an order confirmation.",
+      type: ""
     });
 
     // Create a Products Page.

@@ -1,9 +1,16 @@
-// @ts-check
+const { Page } = require("@playwright/test");
+
 export class LoginPage {
+  page: typeof Page;
+  usernameTextbox: any;
+  passwordTextbox: any;
+  loginButton: any;
+  errorMessage: any;
+
   /**
    * @param {import("@playwright/test").Page} page
    */
-  constructor(page) {
+  constructor(page: typeof Page) {
     this.page = page;
     this.usernameTextbox = page.locator("#user-name");
     this.passwordTextbox = page.locator("#password");
@@ -18,7 +25,7 @@ export class LoginPage {
    * @param {string} password - The password to log in with.
    * @return {Promise<void>} A promise that resolves when the login is complete.
    */
-  async loginAsync(username, password) {
+  async loginAsync(username: string, password: string): Promise<void> {
     await this.usernameTextbox.fill(username);
     await this.passwordTextbox.fill(password);
     await this.loginButton.click();

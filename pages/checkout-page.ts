@@ -1,9 +1,16 @@
-// @ts-check
+const { Page } = require("@playwright/test");
+
 export class CheckoutPage {
+  page: typeof Page;
+  firstNameTextbox: any;
+  lastNameTextbox: any;
+  postalCodeTextbox: any;
+  continueButton: any;
+  
   /**
    * @param {import("@playwright/test").Page} page
    */
-  constructor(page) {
+  constructor(page: typeof Page) {
     this.page = page;
     this.firstNameTextbox = page.getByTestId("firstName");
     this.lastNameTextbox = page.getByTestId("lastName");
@@ -26,7 +33,7 @@ export class CheckoutPage {
    * @param {string} lastName - The Last Name of the Customer to populate on the checkout page.
    * @param {string} postCode - The Post Code to populate on the checkout page.
    */
-  async completeCheckoutAsync(firstName, lastName, postCode) {
+  async completeCheckoutAsync(firstName: string, lastName: string, postCode: string) {
     await this.firstNameTextbox.fill(firstName);
     await this.lastNameTextbox.fill(lastName);
     await this.postalCodeTextbox.fill(postCode);

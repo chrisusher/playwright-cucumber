@@ -9,3 +9,6 @@ node_modules/
 
 # Any Storage State created by the Browser
 .auth/
+
+# Any compiled JS files
+*.js
